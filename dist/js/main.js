@@ -79,95 +79,96 @@ $(document).ready(function() {
 
 var responses = [];
 function getChecked() {
-    var tabIndex = $('#rootwizard').bootstrapWizard('currentIndex') + 1;
-    var question = $('#tab' + tabIndex + ' h1').text();
-    var radioValue = $("input[name=optradio" + tabIndex + "]:checked").val();
+  console.log('getChecked');
+    // var tabIndex = $('#rootwizard').bootstrapWizard('currentIndex') + 1;
+    // var question = $('#tab' + tabIndex + ' h1').text();
+    // var radioValue = $("input[name=optradio" + tabIndex + "]:checked").val();
 
-    var optionResponse = {
-        tab: tabIndex,
-        question: question,
-        responseType: 'string',
-    }
+    // var optionResponse = {
+    //     tab: tabIndex,
+    //     question: question,
+    //     responseType: 'string',
+    // }
 
-    // Radio buttons
-    if (typeof radioValue != 'undefined') {
-        if (radioValue == 'Choose date(s)') {
-            optionResponse.response = $('#dateTab'+tabIndex).val();
-        } else {
-            optionResponse.response = radioValue;
-        }
+    // // Radio buttons
+    // if (typeof radioValue != 'undefined') {
+    //     if (radioValue == 'Choose date(s)') {
+    //         optionResponse.response = $('#dateTab'+tabIndex).val();
+    //     } else {
+    //         optionResponse.response = radioValue;
+    //     }
 
-        optionResponse.id = 'optradio' + tabIndex;
-    }
+    //     optionResponse.id = 'optradio' + tabIndex;
+    // }
 
-    // Tab with checkboxes
-    if (tabIndex == 5) {
-        var additionalSelected = []
+    // // Tab with checkboxes
+    // if (tabIndex == 5) {
+    //     var additionalSelected = []
 
-        $("input[name=additional]:checked").each(function() {
-            additionalSelected.push($(this).attr('value'));
-        });
+    //     $("input[name=additional]:checked").each(function() {
+    //         additionalSelected.push($(this).attr('value'));
+    //     });
 
-        optionResponse.response = additionalSelected;
-        optionResponse.responseType = 'array';
-        optionResponse.id = 'additional';
-    }
+    //     optionResponse.response = additionalSelected;
+    //     optionResponse.responseType = 'array';
+    //     optionResponse.id = 'additional';
+    // }
 
-    if (tabIndex == 8) {
-        var additionalSelected = []
+    // if (tabIndex == 8) {
+    //     var additionalSelected = []
 
-        $("input[name=when]:checked").each(function() {
-            additionalSelected.push($(this).attr('value'));
-        });
+    //     $("input[name=when]:checked").each(function() {
+    //         additionalSelected.push($(this).attr('value'));
+    //     });
 
-        optionResponse.response = additionalSelected;
-        optionResponse.responseType = 'array';
-        optionResponse.id = 'when';
-    }
+    //     optionResponse.response = additionalSelected;
+    //     optionResponse.responseType = 'array';
+    //     optionResponse.id = 'when';
+    // }
 
-    // Tab with text area
-    if (tabIndex == 10) {
-        var textAreaValue = $("#comment").val();
-        optionResponse.response = textAreaValue;
-        optionResponse.id = '#comment';
-    }
+    // // Tab with text area
+    // if (tabIndex == 10) {
+    //     var textAreaValue = $("#comment").val();
+    //     optionResponse.response = textAreaValue;
+    //     optionResponse.id = '#comment';
+    // }
 
-    var inputTextTabs = [
-        {index: 11, id: '#zipcode'},
-        {index: 12, id: '#email'},
-        {index: 13, id: '#name'},
-        {index: 14, id: '#phone'},
-    ];
+    // var inputTextTabs = [
+    //     {index: 11, id: '#zipcode'},
+    //     {index: 12, id: '#email'},
+    //     {index: 13, id: '#name'},
+    //     {index: 14, id: '#phone'},
+    // ];
 
-    var inputIndexes = inputTextTabs.map(function (inputText) {
-        return inputText.index;
-    });
+    // var inputIndexes = inputTextTabs.map(function (inputText) {
+    //     return inputText.index;
+    // });
 
-    // Input texts
-    if ($.inArray(tabIndex, inputIndexes) != '-1') {
-        var inputText = inputTextTabs.find(function (input) {
-            return input.index == tabIndex;
-        });
+    // // Input texts
+    // if ($.inArray(tabIndex, inputIndexes) != '-1') {
+    //     var inputText = inputTextTabs.find(function (input) {
+    //         return input.index == tabIndex;
+    //     });
 
-        if (typeof inputText != 'undefined') {
-            var inputValue = $(inputText.id).val();
-            optionResponse.response = inputValue;
-            optionResponse.id = inputText.id;
-        }
-    }
+    //     if (typeof inputText != 'undefined') {
+    //         var inputValue = $(inputText.id).val();
+    //         optionResponse.response = inputValue;
+    //         optionResponse.id = inputText.id;
+    //     }
+    // }
 
-    responses = responses.filter(function (response) {
-        return response.tab !== optionResponse.tab;
-    });
+    // responses = responses.filter(function (response) {
+    //     return response.tab !== optionResponse.tab;
+    // });
 
-    responses.push(optionResponse);
+    // responses.push(optionResponse);
 
-    console.log(JSON.stringify(responses));
+    // console.log(JSON.stringify(responses));
 
-    if ($('#next-submit').text() == 'Submit') {
-        console.log('Send email');
-        sendRequest();
-    }
+    // if ($('#next-submit').text() == 'Submit') {
+    //     console.log('Send email');
+    //     sendRequest();
+    // }
 }
 
 function resendResponses() {
@@ -200,5 +201,6 @@ function sendRequest() {
 }
 
 function chooseDate(dateId) {
+  console.log('Choose Date', dateId);
     $('#' + dateId).show();
 }

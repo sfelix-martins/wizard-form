@@ -106,10 +106,11 @@ export default class Wizard {
     // Fourth page item
     const next = document.createElement('li');
     next.classList.add('next');
-    next.onclick = "getChecked()";
+    next.addEventListener('click', (() => { getChecked() }).bind());
 
     const nextLink = document.createElement('a');
     nextLink.href = '#';
+    nextLink.setAttribute('id', 'next-submit');
     nextLink.appendChild(document.createTextNode('Next'));
 
     next.appendChild(nextLink);
