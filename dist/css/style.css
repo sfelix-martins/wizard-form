@@ -1,0 +1,54 @@
+#wizardModal h1 {
+    font-size: 22px;
+    line-height: 28px;
+    font-weight: 700;
+}
+
+#wizardModal h2 {
+    font-size: 16px;
+    line-height: 24px;
+}
+
+#wizardModal .form-control {
+    margin: 0;
+    border-radius: 0;
+}
+
+#wizardModal .form-group {
+    background-color: #fff; 
+}
+
+#wizardModal .modal-body {
+    background-color: #fafafa;
+}
+
+#wizardModal .progress {
+    margin-left: 10px;
+    margin-right: 20px;
+    margin-top: 7px;
+    height: 10px;
+}
+
+#wizardModal .modal-footer {
+    text-align: center;
+}
+
+#wizardModal .btn-danger {
+    /*background-color: #d71c5d;*/
+}
+
+#wizardModal .btn-primary {
+    /*background-color: grey;*/
+}
+
+#wizardModal .pager .previous>a {
+    /*color: gray;*/
+}
+
+#wizardModal .pager .next>a {
+    /*color: #d71c5d;*/
+}
+
+#wizardModal .progress-bar {    
+    /*background-image: linear-gradient(to bottom,#d71c5d 0,#fd8eb4 100%);*/
+}
